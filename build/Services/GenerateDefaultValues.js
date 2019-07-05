@@ -22,6 +22,7 @@ function GenerateDefaultValuesAsync(neode, model, properties) {
     var schema = model.schema();
     var output = {};
 
+    let isUpdate = properties.isUpdate || false;
     if (!(properties instanceof Object)) {
         throw new _ValidationError2.default('`properties` must be an object.', properties);
     }
@@ -41,7 +42,7 @@ function GenerateDefaultValuesAsync(neode, model, properties) {
         }
 
         // Set Default Value
-        else if (typeof config.default !== "undefined") {
+        else if (typeof config.default !== "undefined" && isUpdate) {
             output[key] = typeof config.default == 'function' ? config.default() : config.default;
         }
         // Clean Value
