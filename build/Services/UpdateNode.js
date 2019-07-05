@@ -18,7 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function UpdateNode(neode, model, identity, properties) {
     var query = '\n        MATCH (node) \n        WHERE id(node) = {identity} \n        SET node += {properties} \n        RETURN properties(node) as properties\n    ';
 
-    properties.isUpate = true;
+    properties.isUpdate = true;
     return (0, _GenerateDefaultValues2.default)(neode, model, properties, true).then(function (properties) {
         return (0, _Validator2.default)(neode, model, properties);
     }).then(function (properties) {
