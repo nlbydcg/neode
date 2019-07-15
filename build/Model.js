@@ -54,6 +54,8 @@ var Model = function (_Queryable) {
         _this._indexed = [];
         _this._hidden = [];
         _this._readonly = [];
+        _this._get = [];
+        _this._set = [];
 
         // TODO: Clean this up
         for (var key in schema) {
@@ -192,7 +194,13 @@ var Model = function (_Queryable) {
             if (property.readonly()) {
                 this._readonly.push(key);
             }
+            if (property.get()) {
+                this._get.push(key);
+            }
 
+            if (property.set()) {
+                this._set.push(key);
+            }
             return this;
         }
 

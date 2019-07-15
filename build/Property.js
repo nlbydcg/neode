@@ -87,6 +87,16 @@ var Property = function () {
         value: function convertToInteger() {
             return this._type == 'int' || this._type == 'integer';
         }
+    }, {
+        key: 'get',
+        value: function get() {
+            return this._get || false;
+        }
+    }, {
+        key: 'set',
+        value: function set() {
+            return this._set || false;
+        }
     }]);
 
     return Property;

@@ -42,7 +42,7 @@ function GenerateDefaultValuesAsync(neode, model, properties) {
         }
 
         // Set Default Value
-        else if (typeof config.default !== "undefined" && isUpdate) {
+        else if (typeof config.default !== "undefined" && !isUpdate) {
             output[key] = typeof config.default == 'function' ? config.default() : config.default;
         }
         // Clean Value
