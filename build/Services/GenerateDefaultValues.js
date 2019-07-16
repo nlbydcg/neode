@@ -53,6 +53,7 @@ function GenerateDefaultValuesAsync(neode, model, properties) {
         if (typeof config.set !== "undefined") {
             output[key] = typeof config.set == 'function' ? config.set(output[key]) : config.default;
         }
+        if (output[key] == undefined) delete output[key] // null is err
     });
 
     return output;
